@@ -66,7 +66,7 @@ public class ParticipantRestController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public ResponseEntity<?> sortByLoginAsc(@RequestParam(value = "sortBy", defaultValue = "") String sortBy,
+	public ResponseEntity<?> getParticipants(@RequestParam(value = "sortBy", defaultValue = "") String sortBy,
 											@RequestParam(value = "sortOrder", defaultValue = "") String sortOrder,
 											@RequestParam(value = "key", defaultValue = "") String key){
 		Collection<Participant> participants = participantService.getAll(sortBy, sortOrder, key);
