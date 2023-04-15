@@ -31,4 +31,23 @@ public class MeetingRestController{
         return new ResponseEntity<Meeting>(meeting, HttpStatus.OK);
     }
 
+    /*
+    POST localhost:8080/meetings/2/participants
+
+    RequestBody:
+    {"login" : "user"}
+    sprawdzić czy użylpwnik intnieje w systemie (mamy już zrobione szukanie ich de facto)
+    meeting.add
+    update meetingu, bo się zmienili użytkownicy
+
+    DELETE localhost:8080/meetings/2/participants/user2
+    jeśli nie ma takiego użytkownika, to user not found
+
+    potrzebne 2 autowire - meeting service i participant service
+
+
+
+
+     */
+
 }
