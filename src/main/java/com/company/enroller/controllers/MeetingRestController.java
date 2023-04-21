@@ -70,10 +70,11 @@ public class MeetingRestController{
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ResponseEntity<?> getMeetings(@RequestParam(value = "sortBy", defaultValue = "") String sortBy,
-                                             @RequestParam(value = "sortOrder", defaultValue = "") String sortOrder,
-                                             @RequestParam(value = "key", defaultValue = "") long key){
-        Collection<Meeting> meetings = meetingService.getAll(sortBy, sortOrder, key);
+    public ResponseEntity<?> getMeetings(@RequestParam(value = "title", defaultValue = "") String title,
+                                             @RequestParam(value = "description", defaultValue = "") String description,
+                                             @RequestParam(value = "participant", defaultValue = "") Participant participant,
+                                            @RequestParam(value = "sortMode", defaultValue = "") String sortMode){
+        Collection<Meeting> meetings = meetingService.findMeetings(title, description, participant, sortMode);
 
         return new ResponseEntity<Collection<Meeting>>(meetings, HttpStatus.OK);
     }

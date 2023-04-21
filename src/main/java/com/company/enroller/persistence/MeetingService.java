@@ -22,24 +22,24 @@ public class MeetingService {
 		connector = DatabaseConnector.getInstance();
 	}
 
-//	public Collection<Meeting> getAll() {
-//		String hql = "FROM Meeting";
-//		Query query = this.session.createQuery(hql);
-//		return query.list();
-//	}
-
-	public Collection<Meeting> getAll(String sortBy, String sortOrder, long key) {
-		String hql = "from Participant where id like :key";
-		if (sortBy.equals("login")){
-			hql += " order by login";
-			if (sortOrder.equals("ASC") || sortOrder.equals("DESC")){
-				hql += " " + sortOrder;
-			}
-		}
-		Query query = connector.getSession().createQuery(hql);
-		query.setParameter("key", "%"+key+"%");
+	public Collection<Meeting> getAll() {
+		String hql = "FROM Meeting";
+		Query query = this.session.createQuery(hql);
 		return query.list();
 	}
+
+//	public Collection<Meeting> getAll(String sortBy, String sortOrder, long key) {
+//		String hql = "from Participant where id like :key";
+//		if (sortBy.equals("login")){
+//			hql += " order by login";
+//			if (sortOrder.equals("ASC") || sortOrder.equals("DESC")){
+//				hql += " " + sortOrder;
+//			}
+//		}
+//		Query query = connector.getSession().createQuery(hql);
+//		query.setParameter("key", "%"+key+"%");
+//		return query.list();
+//	}
 
 
 	public Meeting findById(long id) {
